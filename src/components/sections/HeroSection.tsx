@@ -31,7 +31,16 @@ const HeroSection = () => {
             <div className="relative">
               <div className="w-full md:w-[500px] h-[300px] md:h-[400px] overflow-hidden rounded-lg shadow-2xl">
                 <img 
-                  src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  src="PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project> ^C
+PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project> git branch
+
+* main
+PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project>    git checkout -b animated-website
+Switched to a new branch 'animated-website'
+PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project>    git push -u origin animated-website
+remote: Permission to rft0702riya/animated-website.git denied to riya-singh2607.
+fatal: unable to access 'https://github.com/rft0702riya/animated-website.git/': The requested URL returned error: 403
+PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project> https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                   alt="Digital Technology" 
                   className="w-full h-full object-cover"
                 />
@@ -40,25 +49,6 @@ const HeroSection = () => {
               <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-blue-400 rounded-lg rotate-12 opacity-20 animate-pulse"></div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-indigo-500 rounded-full opacity-20 animate-pulse"></div>
             </div>
-          </div>
-        </div>
-        
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="text-center animate-slideUp" style={{animationDelay: '0.3s', animationFillMode: 'both'}}>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">500+</h3>
-            <p className="text-blue-200">Satisfied Clients</p>
-          </div>
-          <div className="text-center animate-slideUp" style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">150+</h3>
-            <p className="text-blue-200">Completed Projects</p>
-          </div>
-          <div className="text-center animate-slideUp" style={{animationDelay: '0.5s', animationFillMode: 'both'}}>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">50+</h3>
-            <p className="text-blue-200">Tech Experts</p>
-          </div>
-          <div className="text-center animate-slideUp" style={{animationDelay: '0.6s', animationFillMode: 'both'}}>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">10+</h3>
-            <p className="text-blue-200">Years Experience</p>
           </div>
         </div>
       </div>
