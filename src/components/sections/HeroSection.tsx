@@ -31,16 +31,7 @@ const HeroSection = () => {
             <div className="relative">
               <div className="w-full md:w-[500px] h-[300px] md:h-[400px] overflow-hidden rounded-lg shadow-2xl">
                 <img 
-                  src="PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project> ^C
-PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project> git branch
-
-* main
-PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project>    git checkout -b animated-website
-Switched to a new branch 'animated-website'
-PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project>    git push -u origin animated-website
-remote: Permission to rft0702riya/animated-website.git denied to riya-singh2607.
-fatal: unable to access 'https://github.com/rft0702riya/animated-website.git/': The requested URL returned error: 403
-PS C:\Users\gulab\Downloads\project-bolt-sb1-se66vmsh (1)\project> https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
                   alt="Digital Technology" 
                   className="w-full h-full object-cover"
                 />
