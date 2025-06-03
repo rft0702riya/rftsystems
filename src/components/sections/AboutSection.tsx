@@ -10,7 +10,7 @@ const AboutSection = () => {
             </h2>
             <div className="w-20 h-1 bg-blue-500 mb-6"></div>
             <p className="text-gray-700 mb-5 leading-relaxed">
-              Founded in 2023, Ruhil Future Technologies is a pioneer in delivering innovative digital solutions. We help businesses elevate their operations through transformative technologies that enhance efficiency and fuel sustainable growth.
+              Founded in 19 March 2024, Ruhil Future Technologies is a pioneer in delivering innovative digital solutions. We help businesses elevate their operations through transformative technologies that enhance efficiency and fuel sustainable growth.
             </p>
             <p className="text-gray-700 mb-8 leading-relaxed">
               Our dedicated professionals bring a unique mix of technical expertise and creative insight, enabling us to build solutions that solve real-world challenges and surpass expectations.
