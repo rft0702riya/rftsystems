@@ -8,18 +8,18 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-blue-950 text-white pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-gray-900 to-blue-950 text-white pt-6 pb-4 relative overflow-hidden">
       {/* Subtle background animation */}
       <div className="absolute inset-0 bg-pattern animate-bg-slide opacity-20" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {/* Company Info */}
           <div className="animate-slideUpAndRotate" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-            <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400 animate-pulse">
+            <h3 className="text-lg font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400 animate-pulse">
               Ruhil Future Technologies
             </h3>
-            <p className="text-gray-300 mb-4 leading-relaxed">
+            <p className="text-gray-300 mb-3 leading-relaxed text-sm">
               Igniting innovation with cutting-edge solutions for a smarter, sustainable tomorrow.
             </p>
             <div className="flex space-x-4">
@@ -51,10 +51,10 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="animate-slideUpAndRotate" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-            <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            <h3 className="text-lg font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1 text-sm">
               {[
                 { href: '#home', label: 'Home' },
                 { href: '#about', label: 'About Us' },
@@ -78,10 +78,10 @@ const Footer = () => {
 
           {/* Services */}
           <div className="animate-slideUpAndRotate" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-            <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            <h3 className="text-lg font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
               Our Services
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1 text-sm">
               {[
                 { href: '#services', label: 'AI-Powered Educational Solutions' },
                 { href: '#services', label: 'Startup Incubation' },
@@ -105,10 +105,10 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="animate-slideUpAndRotate" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-            <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+            <h3 className="text-lg font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
               Contact Us
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2 text-sm">
               {[
                 {
                   icon: <MapPin size={20} className="text-blue-400 animate-pulse" />,
@@ -135,12 +135,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-blue-900/50 pt-8 animate-fadeIn" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
+        <div className="border-t border-blue-900/50 pt-4 animate-fadeIn" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-sm mb-4 md:mb-0">
+            <p className="text-gray-300 text-xs mb-2 md:mb-0">
               © {currentYear} Ruhil Future Technologies. All Rights Reserved.
             </p>
-            <div className="flex space-x-6">
+            <div className="flex space-x-4 text-xs">
               {[
                 { href: '#privacy', label: 'Privacy Policy' },
                 { href: '#terms', label: 'Terms of Service' },
@@ -148,7 +148,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={link.href}
-                  className="text-gray-300 text-sm relative group hover:text-blue-400 transition-colors"
+                  className="text-gray-300 text-xs relative group hover:text-blue-400 transition-colors"
                   aria-label={link.label}
                 >
                   {link.label}
@@ -160,7 +160,7 @@ const Footer = () => {
         </div>
 
         {/* Wave Divider (Top) */}
-        <div className="absolute top-0 left-0 w-full h-16 bg-wave bg-top bg-no-repeat bg-cover animate-wave transform rotate-180"></div>
+        <div className="absolute top-0 left-0 w-full h-10 bg-wave bg-top bg-no-repeat bg-cover animate-wave transform rotate-180"></div>
       </div>
     </footer>
   );

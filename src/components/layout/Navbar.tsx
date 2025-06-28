@@ -1,11 +1,27 @@
 import { Link, useLocation } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
   const [mainDropdownOpen, setMainDropdownOpen] = useState(false);
   const [subDropdown, setSubDropdown] = useState<string | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>(
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  );
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
@@ -73,56 +89,37 @@ const Navbar = () => {
                 <AnimatePresence>
                   {mainDropdownOpen && (
                     <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={dropdownVariants}
-                      className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-56 z-50"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute top-full left-0 mt-3 bg-white rounded-xl shadow-2xl w-[600px] z-50 p-0 border border-gray-100 flex"
                     >
-                      <ul className="py-2">
-                        <li>
-                          <button onClick={() => setSubDropdown('careers')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">Careers</button>
-                        </li>
-                        <li>
-                          <button onClick={() => setSubDropdown('learn')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">Learn</button>
-                        </li>
-                        <li>
-                          <Link to="/enquiry" className="block px-4 py-2 hover:bg-gray-100">Enquiry</Link>
-                        </li>
-                      </ul>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                {/* Sub-dropdowns */}
-                <AnimatePresence>
-                  {subDropdown === 'careers' && (
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={dropdownVariants}
-                      className="absolute top-full left-56 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-64 z-50"
-                    >
-                      <ul className="py-2">
-                        <li><Link to="/life-at-rft" className="block px-4 py-2 hover:bg-gray-100">Life at RFT</Link></li>
-                        <li><Link to="/employee-says" className="block px-4 py-2 hover:bg-gray-100">What Our Employees Say</Link></li>
-                        <li><Link to="/open-positions" className="block px-4 py-2 hover:bg-gray-100">Open Positions</Link></li>
-                        <li><Link to="/apply" className="block px-4 py-2 hover:bg-gray-100">Apply</Link></li>
-                      </ul>
-                    </motion.div>
-                  )}
-                  {subDropdown === 'learn' && (
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={dropdownVariants}
-                      className="absolute top-full left-56 mt-2 bg-white border border-gray-200 rounded-md shadow-lg w-48 z-50"
-                    >
-                      <ul className="py-2">
-                        <li><Link to="/mdu" className="block px-4 py-2 hover:bg-gray-100">MDU</Link></li>
-                        <li><Link to="/crd" className="block px-4 py-2 hover:bg-gray-100">CRD</Link></li>
-                      </ul>
+                      {/* Left panel: categories */}
+                      <div className="w-1/3 border-r border-gray-200 py-4 flex flex-col bg-gray-50 rounded-l-xl">
+                        <button onClick={() => setSubDropdown('careers')} className={`text-left px-6 py-2 font-medium text-gray-700 hover:bg-gray-100 rounded-none transition-colors ${subDropdown === 'careers' ? 'bg-white border-l-4 border-indigo-500 text-indigo-700' : ''}`}>Careers</button>
+                        <button onClick={() => setSubDropdown('learn')} className={`text-left px-6 py-2 font-medium text-gray-700 hover:bg-gray-100 rounded-none transition-colors ${subDropdown === 'learn' ? 'bg-white border-l-4 border-indigo-500 text-indigo-700' : ''}`}>Learn</button>
+                        <Link to="/enquiry" className={`px-6 py-2 font-medium text-gray-700 hover:bg-gray-100 rounded-none transition-colors text-left ${subDropdown === null ? 'bg-white border-l-4 border-indigo-500 text-indigo-700' : ''}`}>Enquiry</Link>
+                      </div>
+                      {/* Right panel: links for selected category */}
+                      <div className="w-2/3 py-4 px-6">
+                        {subDropdown === 'careers' && (
+                          <ul className="grid grid-cols-1 gap-2">
+                            <li><Link to="/life-at-rft" className="block px-3 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium text-gray-700">Life at RFT</Link></li>
+                            <li><Link to="/employee-says" className="block px-3 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium text-gray-700">What Our Employees Say</Link></li>
+                            <li><Link to="/apply" className="block px-3 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium text-gray-700">Apply</Link></li>
+                          </ul>
+                        )}
+                        {subDropdown === 'learn' && (
+                          <ul className="grid grid-cols-1 gap-2">
+                            <li><Link to="/mdu" className="block px-3 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium text-gray-700">MDU</Link></li>
+                            <li><Link to="/crd" className="block px-3 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium text-gray-700">CRD</Link></li>
+                          </ul>
+                        )}
+                        {subDropdown === null && (
+                          <div className="text-gray-500 text-sm">Select a category to see more options.</div>
+                        )}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -132,12 +129,23 @@ const Navbar = () => {
           </div>
           {/* Spacer for gap */}
           <div className="flex-1" />
-          {/* Right: Login/Register/For Employer's */}
+          {/* Right: Login/Register/For Employer's and Theme Toggle */}
           <div className="hidden lg:flex items-center space-x-4">
-            <button onClick={handleSignInClick} className="px-4 py-2 border border-gray-400 bg-gradient-to-b from-gray-300 to-gray-500 text-gray-900 rounded-full hover:from-gray-400 hover:to-gray-600 font-semibold text-sm shadow-lg transition-colors duration-200">Login</button>
+            <button onClick={handleSignInClick} className="px-4 py-2 border border-blue-200 bg-gradient-to-b from-blue-200 to-blue-400 text-blue-900 rounded-full hover:from-blue-300 hover:to-blue-500 font-semibold text-sm shadow-lg transition-colors duration-200">Login</button>
             <button onClick={handleNewUserClick} className="px-4 py-2 bg-gradient-to-b from-red-500 to-red-700 text-white rounded-full hover:from-red-600 hover:to-red-800 font-semibold text-sm shadow-md transition-colors duration-200">Register</button>
             <span className="h-6 w-px bg-gray-400 mx-2 rounded-full" />
-            <button className="px-4 py-2 border border-gray-400 bg-gradient-to-b from-gray-300 to-gray-500 text-gray-900 rounded-full hover:from-gray-400 hover:to-gray-600 font-semibold text-sm shadow-lg transition-colors duration-200 flex items-center gap-2">For Employer's</button>
+            <Link to="/employers-login" className="px-4 py-2 border border-blue-200 bg-gradient-to-b from-blue-200 to-blue-400 text-blue-900 rounded-full hover:from-blue-300 hover:to-blue-500 font-semibold text-sm shadow-lg transition-colors duration-200 flex items-center gap-2">For Employer's</Link>
+            <button
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors duration-200 flex items-center justify-center"
+              aria-label="Toggle dark mode"
+            >
+              {theme === 'dark' ? (
+                <Sun size={20} className="text-yellow-500" />
+              ) : (
+                <Moon size={20} className="text-blue-700" />
+              )}
+            </button>
           </div>
         </div>
       </div>
